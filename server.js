@@ -21,7 +21,7 @@ const supabase = createClient(
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: true }));
 
 // select * from pokemon
 // app.get("/pokemon", (req, res) => {
