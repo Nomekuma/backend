@@ -21,7 +21,7 @@ const supabase = createClient(
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: '*' }));
+app.use(cors({ origin: "*" }));
 
 // select * from pokemon
 // app.get("/pokemon", (req, res) => {
@@ -56,7 +56,8 @@ app.get("/pokemon", async (req, res) => {
 // });
 
 app.get("/pokemon/:name", async (req, res) => {
-  const { name } = req.params;
+  const name = req.params.name.toLowerCase();
+
   try {
     const { data, error } = await supabase
       .from("pokemon")
